@@ -68,8 +68,8 @@ install_config(){
 	CONFIG_SERVER_FILE=https://cdn.jsdelivr.net/gh/wf09/Xray-config/"${CONFIG_VALUE}"/config_server.json
 	CONFIG_CLIENT_FILE=https://cdn.jsdelivr.net/gh/wf09/Xray-config/"${CONFIG_VALUE}"/config_client.json
 	
-	wget -O ${PWD}/server.json $CONFIG_SERVER_FILE
-	wget -O ${PWD}/client.json $CONFIG_CLIENT_FILE
+	wget -O ${PWD}/Xray/server.json $CONFIG_SERVER_FILE
+	wget -O ${PWD}/Xray/client.json $CONFIG_CLIENT_FILE
 	
 	echo "Done."
 }
