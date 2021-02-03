@@ -3,8 +3,8 @@ LABEL maintainer "wf09 <wf09@outlook.de>"
 
 WORKDIR /root
 ARG TARGETPLATFORM=linux/amd64   #linux/amd64 linux/arm64
-ARG SERVER_CLIENT=server
-ARG XTLS_WS=vless/xtls 
+ARG XTLS_WS=vless/ws
+ENV SERVER_CLIENT=server
 
 COPY * /root/
 
