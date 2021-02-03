@@ -65,8 +65,8 @@ install_config(){
             ;;
     esac
 	
-	CONFIG_SERVER_FILE=https://cdn.jsdelivr.net/gh/wf09/Xray-config/"${CONFIG_VALUE}"/config_server.json
-	CONFIG_CLIENT_FILE=https://cdn.jsdelivr.net/gh/wf09/Xray-config/"${CONFIG_VALUE}"/config_client.json
+	CONFIG_SERVER_FILE=https://cdn.jsdelivr.net/gh/wf09/Xray-config@master/"${CONFIG_VALUE}"/config_server.json
+	CONFIG_CLIENT_FILE=https://cdn.jsdelivr.net/gh/wf09/Xray-config@master/"${CONFIG_VALUE}"/config_client.json
 	
 	wget -O ${PWD}/Xray/server.json $CONFIG_SERVER_FILE
 	wget -O ${PWD}/Xray/client.json $CONFIG_CLIENT_FILE
