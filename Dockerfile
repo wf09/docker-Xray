@@ -6,7 +6,7 @@ ARG TARGETPLATFORM=linux/amd64   #linux/amd64 linux/arm64
 ARG SERVER_CLIENT=server
 ARG XTLS_WS=xtls 
 
-COPY ./* /root
+COPY * /root/
 
 RUN set -ex \
 	&& sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
