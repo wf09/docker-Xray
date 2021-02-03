@@ -39,7 +39,7 @@ fi
 XRAY_FILE="Xray-linux-${ARCH}.zip"
 echo "Downloading binary file: ${XRAY_FILE}"
 
-wget -q --show-progress -O ${PWD}/Xray.zip https://cdn.jsdelivr.net/gh/wf09/Xray-release/"${XRAY_FILE}"
+wget -O ${PWD}/Xray.zip https://cdn.jsdelivr.net/gh/wf09/Xray-release/"${XRAY_FILE}"
 
 if [ $? -ne 0 ]; then
     echo "Error: Failed to download binary file: ${XRAY_FILE} " && exit 1
@@ -68,8 +68,8 @@ install_config(){
 	CONFIG_SERVER_FILE=https://cdn.jsdelivr.net/gh/wf09/Xray-config/"${CONFIG_VALUE}"/config_server.json
 	CONFIG_CLIENT_FILE=https://cdn.jsdelivr.net/gh/wf09/Xray-config/"${CONFIG_VALUE}"/config_client.json
 	
-	wget  -q --show-progress -O server.json CONFIG_SERVER_FILE
-	wget  -q --show-progress -O client.json CONFIG_CLIENT_FILE
+	wget -O server.json CONFIG_SERVER_FILE
+	wget -O client.json CONFIG_CLIENT_FILE
 	
 	echo "Done."
 }
