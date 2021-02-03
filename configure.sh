@@ -56,7 +56,7 @@ install_config(){
         vless/xtls)
             CONFIG_VALUE="xtls"
             ;;
-        vmess/ws)
+        vless/ws)
             CONFIG_VALUE="ws"
             ;;
         *)
