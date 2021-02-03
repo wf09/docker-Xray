@@ -12,8 +12,8 @@ RUN set -ex \
 	&& sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
 	&& apk update \
 	&& apk add --no-cache tzdata openssl ca-certificates \
-	&& mkdir -p ./Xray
-	&& chmod +x ./configure.sh
+	&& mkdir -p ./Xray \
+	&& chmod +x ./configure.sh \
 	&& ./configure.sh "${TARGETPLATFORM}"
 
-CMD [ "/root/Xray/xray", "-config", "/root/Xray/'{SERVER_CLIENT}'.json" ]
+CMD [ "/root/Xray/xray", "-config", "/root/Xray/'${SERVER_CLIENT}'.json" ]
