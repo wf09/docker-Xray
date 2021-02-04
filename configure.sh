@@ -77,7 +77,15 @@ cat << EOF > /root/Xray/server.json
             },
             "streamSettings": {
                 "network": "ws",
-                "security": "none"
+                "security": "tls",
+                "tlsSettings": {
+                    "certificates": [
+                        {
+                            "certificateFile": "/root/fullchain.crt",
+                            "keyFile": "/root/privkey.key"
+                        }
+                    ]
+                }
             }
         }
     ],
