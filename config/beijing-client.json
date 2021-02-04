@@ -17,7 +17,8 @@
           "geoip:cn"
         ], 
         "port": 53
-      }
+      },
+	  "8.8.8.8"
     ]
   }, 
   "routing": {
@@ -46,7 +47,8 @@
         "type": "field", 
         "outboundTag": "Proxy", 
         "domain": [
-          "geosite:geolocation-!cn"
+          "geosite:geolocation-!cn",
+		  "geoip:telegram"
         ]
       }, 
       {
