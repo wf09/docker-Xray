@@ -34,7 +34,7 @@
       {
         "type": "field", 
         "outboundTag": "Direct", 
-		"inboundsTag": "Direct",
+		"inboundTag": "Direct",
         "domain": [
           "geosite:private", 
           "geosite:apple-cn", 
