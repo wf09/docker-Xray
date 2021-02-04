@@ -71,7 +71,7 @@ cat << EOF > /root/Xray/server.json
 			"decryption": "none",
                 "clients": [
                     {
-                        "id": "115b399e-9c7d-406e-adf9-172c965a3c54"
+                        "id": "0"
                     }
                 ]
             },
