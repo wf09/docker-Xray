@@ -2,9 +2,7 @@ FROM alpine:latest
 LABEL maintainer "wf09 <wf09@outlook.de>"
 
 WORKDIR /root
-ARG TARGETPLATFORM=linux/amd64   
-ARG XTLS_WS=vless/xtls
-ENV PORT=80
+ARG TARGETPLATFORM=linux/amd64
 
 COPY configure.sh fullchain.crt privkey.key /root/
 
@@ -16,4 +14,4 @@ RUN set -ex \
 	&& chmod +x ./configure.sh \
 	&& ./configure.sh "${TARGETPLATFORM}"
 
-CMD /root/Xray/xray -config /root/Xray/server.json
+CMD /root/Xray/xray -config /root/config.json

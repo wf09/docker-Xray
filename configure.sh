@@ -1,109 +1,5 @@
 #!/bin/sh
 # Set ARG
-xtls(){
-cat << EOF > /root/Xray/server.json
-{
-    "log": {
-        "loglevel": "warning"
-    },
-    "inbounds": [
-        {
-            "port": $PORT,
-            "protocol": "vless",
-            "settings": {
-                "clients": [
-                    {
-                        "id": "115b399e-9c7d-406e-adf9-172c965a3c54",
-                        "flow": "xtls-rprx-direct"
-                    }
-                ],
-                "decryption": "none"
-            },
-            "streamSettings": {
-                "network": "tcp",
-                "security": "xtls",
-                "xtlsSettings": {
-                    "alpn": [
-                        "http/1.1"
-                    ],
-                    "certificates": [
-                        {
-                            "certificateFile": "/root/fullchain.crt", 
-                            "keyFile": "/root/privkey.key"
-                        }
-                    ]
-                }
-            }
-        }
-    ],
-    "outbounds": [
-        {
-            "protocol": "freedom"
-        }
-    ]
-}
-
-EOF
-}
-ws(){
-cat << EOF > /root/Xray/server.json
-{
-    "log": {
-        "loglevel": "warning"
-    },
-    "routing": {
-        "domainStrategy": "AsIs",
-        "rules": [
-            {
-                "type": "field",
-                "ip": [
-                    "geoip:private"
-                ],
-                "outboundTag": "block"
-            }
-        ]
-    },
-    "inbounds": [
-        {
-            "port": $PORT,
-            "protocol": "vless",
-            "settings": {
-			"decryption": "none",
-                "clients": [
-                    {
-                        "id": "0"
-                    }
-                ]
-            },
-            "streamSettings": {
-                "network": "ws",
-                "security": "tls",
-                "tlsSettings": {
-                    "certificates": [
-                        {
-                            "certificateFile": "/root/fullchain.crt",
-                            "keyFile": "/root/privkey.key"
-                        }
-                    ]
-                }
-            }
-        }
-    ],
-    "outbounds": [
-        {
-            "protocol": "freedom",
-            "tag": "direct"
-        },
-        {
-            "protocol": "blackhole",
-            "tag": "block"
-        }
-    ]
-}
-
-EOF
-}
-
 
 install_xray(){
 PLATFORM=$1 
@@ -156,20 +52,7 @@ unzip -d Xray Xray.zip && chmod +x ./Xray/xray
 }
 
 install_config(){
-    case "$XTLS_WS" in
-        vless/xtls)
-            xtls
-            ;;
-        vless/ws)
-            ws
-            ;;
-        *)
-			echo "Default XTLS."
-			xtls
-            ;;
-    esac
-	echo "port=$PORT"
-	echo "Done."
+	echo "Please mount the configuration file to the /root directory!"
 }
 
 
