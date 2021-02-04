@@ -17,7 +17,7 @@ cat << EOF > /root/Xray/server.json
                         "flow": "xtls-rprx-direct"
                     }
                 ],
-                "decryption": "none",
+                "decryption": "none"
             },
             "streamSettings": {
                 "network": "tcp",
