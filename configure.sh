@@ -1,5 +1,101 @@
 #!/bin/sh
 # Set ARG
+xtls(){
+cat << EOF > /root/Xray/server.json
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "inbounds": [
+        {
+            "port": $PORT,
+            "protocol": "vless",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "115b399e-9c7d-406e-adf9-172c965a3c54",
+                        "flow": "xtls-rprx-direct"
+                    }
+                ],
+                "decryption": "none",
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "security": "xtls",
+                "xtlsSettings": {
+                    "alpn": [
+                        "http/1.1"
+                    ],
+                    "certificates": [
+                        {
+                            "certificateFile": "/root/fullchain.crt", 
+                            "keyFile": "/root/privkey.key"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+    "outbounds": [
+        {
+            "protocol": "freedom"
+        }
+    ]
+}
+
+EOF
+}
+ws(){
+cat << EOF > /root/Xray/server.json
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "routing": {
+        "domainStrategy": "AsIs",
+        "rules": [
+            {
+                "type": "field",
+                "ip": [
+                    "geoip:private"
+                ],
+                "outboundTag": "block"
+            }
+        ]
+    },
+    "inbounds": [
+        {
+            "port": $PORT,
+            "protocol": "vless",
+            "settings": {
+			"decryption": "none",
+                "clients": [
+                    {
+                        "id": "115b399e-9c7d-406e-adf9-172c965a3c54"
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "ws",
+                "security": "none"
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "tag": "direct"
+        },
+        {
+            "protocol": "blackhole",
+            "tag": "block"
+        }
+    ]
+}
+
+EOF
+}
+
 
 install_xray(){
 PLATFORM=$1 
@@ -54,23 +150,17 @@ unzip -d Xray Xray.zip && chmod +x ./Xray/xray
 install_config(){
     case "$XTLS_WS" in
         vless/xtls)
-            CONFIG_VALUE="xtls"
+            xtls
             ;;
         vless/ws)
-            CONFIG_VALUE="ws"
+            ws
             ;;
         *)
 			echo "Default XTLS."
-			CONFIG_VALUE="xtls"
+			xtls
             ;;
     esac
-	
-	CONFIG_SERVER_FILE=https://cdn.jsdelivr.net/gh/wf09/Xray-config@master/"${CONFIG_VALUE}"/config_server.json
-	CONFIG_CLIENT_FILE=https://cdn.jsdelivr.net/gh/wf09/Xray-config@master/"${CONFIG_VALUE}"/config_client.json
-	
-	wget -O ${PWD}/Xray/server.json $CONFIG_SERVER_FILE
-	wget -O ${PWD}/Xray/client.json $CONFIG_CLIENT_FILE
-	
+	echo "port=$PORT"
 	echo "Done."
 }
 

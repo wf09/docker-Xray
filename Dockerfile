@@ -3,8 +3,8 @@ LABEL maintainer "wf09 <wf09@outlook.de>"
 
 WORKDIR /root
 ARG TARGETPLATFORM=linux/amd64   #linux/amd64 linux/arm64
-ARG XTLS_WS=vless/ws
-ENV SERVER_CLIENT=server
+ARG XTLS_WS=vless/xtls
+ENV PORT=80
 
 COPY * /root/
 
@@ -16,4 +16,4 @@ RUN set -ex \
 	&& chmod +x ./configure.sh \
 	&& ./configure.sh "${TARGETPLATFORM}"
 
-CMD /root/Xray/xray -config /root/Xray/${SERVER_CLIENT}.json
+CMD /root/Xray/xray -config /root/Xray/server.json
