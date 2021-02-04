@@ -35,7 +35,7 @@ cat << EOF > /root/Xray/server.json
                 }
             }
         }
-    ]
+    ],
     "outbounds": [
         {
             "protocol": "freedom"
