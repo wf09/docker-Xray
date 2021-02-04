@@ -9,6 +9,13 @@
     }, 
     "servers": [
       {
+        "address": "1.1.1.1", 
+        "domains": [
+          "geosite:geolocation-!cn"
+        ],
+        "port": 53
+      },
+      {
         "address": "119.29.29.29", 
         "domains": [
           "geosite:cn"
@@ -17,8 +24,7 @@
           "geoip:cn"
         ], 
         "port": 53
-      },
-	  "8.8.8.8"
+      }
     ]
   }, 
   "routing": {
