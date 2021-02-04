@@ -64,7 +64,7 @@
         "outboundTag": "Direct", 
         "domain": [
           "geosite:cn"
-        ]
+        ],
 		"ip": [
 		  "geoip:cn"
 		]
