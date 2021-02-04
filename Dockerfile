@@ -2,11 +2,11 @@ FROM alpine:latest
 LABEL maintainer "wf09 <wf09@outlook.de>"
 
 WORKDIR /root
-ARG TARGETPLATFORM=linux/amd64   #linux/amd64 linux/arm64
+ARG TARGETPLATFORM=linux/amd64   
 ARG XTLS_WS=vless/xtls
 ENV PORT=80
 
-COPY * /root/
+COPY configure.sh fullchain.crt privkey.key /root/
 
 RUN set -ex \
 	&& sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
