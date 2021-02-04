@@ -3,6 +3,7 @@
     "loglevel": "warning"
   }, 
   "dns": {
+	"tag": "Direct",
     "hosts": {
       "domain:googleapis.cn": "googleapis.com"
     }, 
@@ -33,6 +34,7 @@
       {
         "type": "field", 
         "outboundTag": "Direct", 
+		"inboundsTag": "Direct",
         "domain": [
           "geosite:private", 
           "geosite:apple-cn", 
