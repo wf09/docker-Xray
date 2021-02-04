@@ -55,11 +55,6 @@
         "domain": [
           "geosite:cn"
         ]
-      }, 
-      {
-        "type": "field", 
-        "outboundTag": "Proxy", 
-        "network": "tcp,udp"
       }
     ]
   }, 
