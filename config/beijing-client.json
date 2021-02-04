@@ -26,6 +26,15 @@
     "rules": [
       {
         "type": "field", 
+        "outboundTag": "Proxy",
+		"ip": [
+		"geoip:telegram",
+		"8.8.8.8/32",
+		"1.1.1.1/32"
+        ]
+      }, 
+      {
+        "type": "field", 
         "outboundTag": "Reject", 
         "domain": [
           "geosite:category-ads-all", 
@@ -47,8 +56,7 @@
         "type": "field", 
         "outboundTag": "Proxy", 
         "domain": [
-          "geosite:geolocation-!cn",
-		  "geoip:telegram"
+          "geosite:geolocation-!cn"
         ]
       }, 
       {
@@ -57,6 +65,9 @@
         "domain": [
           "geosite:cn"
         ]
+		"ip": [
+		  "geoip:cn"
+		]
       }
     ]
   }, 
