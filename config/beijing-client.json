@@ -86,6 +86,11 @@
   ], 
   "outbounds": [
     {
+      "protocol": "freedom", 
+      "settings": { }, 
+      "tag": "Direct"
+    },
+    {
       "protocol": "vless", 
       "settings": {
         "vnext": [
@@ -111,11 +116,6 @@
         }
       }, 
       "tag": "Proxy"
-    }, 
-    {
-      "protocol": "freedom", 
-      "settings": { }, 
-      "tag": "Direct"
     }, 
     {
       "protocol": "blackhole", 
