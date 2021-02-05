@@ -7,7 +7,23 @@
       "domain:googleapis.cn": "googleapis.com"
     }, 
     "servers": [
-	"1.1.1.1"
+      {
+        "address": "1.1.1.1", 
+        "domains": [
+          "geosite:geolocation-!cn"
+        ],
+        "port": 53
+      },
+      {
+        "address": "119.29.29.29", 
+        "domains": [
+          "geosite:cn"
+        ], 
+        "expectIPs": [
+          "geoip:cn"
+        ], 
+        "port": 53
+      }
     ]
   }, 
   "routing": {
