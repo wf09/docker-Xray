@@ -95,7 +95,7 @@
       "protocol": "socks",
       "settings": {
         "auth": "noauth",
-        "udp": true,
+        "udp": true
       },
       "sniffing": {
         "destOverride": [
@@ -105,7 +105,7 @@
         "enabled": true
       },
       "tag": "socks"
-    },
+    }
   ], 
   "outbounds": [
     {
@@ -118,7 +118,7 @@
             "users": [
               {
                 "id": "0",
-                "encryption": "none",
+                "encryption": "none"
               }
             ]
           }
@@ -132,7 +132,7 @@
           }
         }
       },
-      "tag": "Direct",
+      "tag": "Direct"
 	},
     {
       "protocol": "blackhole", 
