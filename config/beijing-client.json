@@ -7,35 +7,39 @@
       "domain:googleapis.cn": "googleapis.com"
     }, 
     "servers": [
-      {
-        "address": "8.8.8.8", 
-        "domains": [
-          "geosite:geolocation-!cn"
-        ],
-        "port": 53
-      },
-      {
-        "address": "1.1.1.1", 
-        "domains": [
-          "geosite:geolocation-!cn"
-        ],
-        "port": 53
-      },
-	  "114.114.114.114"
+	"1.1.1.1",
+	"8.8.8.8",
+	"114.114.114.114"
     ]
   }, 
   "routing": {
     "domainStrategy": "IPIfNonMatch", 
     "rules": [
-      {
-        "type": "field", 
-        "outboundTag": "Proxy",
-		"ip": [
-		"geoip:telegram",
-		"8.8.8.8",
-		"1.1.1.1"
-        ]
-      }, 
+    {
+      "type": "field",
+      "outboundTag": "Direct",
+      "ip": [
+        "223.5.5.5/32",
+        "119.29.29.29/32",
+        "180.76.76.76/32",
+        "114.114.114.114/32",
+        "geoip:cn",
+        "geoip:private"
+      ]
+    },
+    {
+      "type": "field",
+      "outboundTag": "Proxy",
+      "ip": [
+        "1.1.1.1/32",
+        "1.0.0.1/32",
+        "8.8.8.8/32",
+        "8.8.4.4/32",
+        "geoip:us",
+        "geoip:ca",
+        "geoip:telegram"
+      ]
+    },
       {
         "type": "field", 
         "outboundTag": "Reject", 
@@ -66,10 +70,7 @@
         "outboundTag": "Direct", 
         "domain": [
           "geosite:cn"
-        ],
-		"ip": [
-		  "geoip:cn"
-		]
+        ]
       }
     ]
   }, 
