@@ -1,0 +1,80 @@
+{
+  "log": {
+    "loglevel": "warning"
+  }, 
+  "dns": {
+    "hosts": {
+      "domain:googleapis.cn": "googleapis.com"
+    }, 
+    "servers": [
+      {
+        "address": "8.8.8.8", 
+        "domains": [
+          "geosite:geolocation-!cn"
+        ], 
+        "port": 53
+      }
+    ]
+  }, 
+  "routing": {
+    "domainStrategy": "AsIs", 
+    "rules": [
+      {
+        "type": "field", 
+        "outboundTag": "Reject", 
+        "domain": [
+          "geosite:category-ads-all", 
+          "geosite:win-spy"
+        ]
+      }
+    ]
+  }, 
+  "inbounds": [
+    {
+      "port": 443, 
+      "protocol": "vless", 
+      "settings": {
+        "clients": [
+          {
+            "id": "115b399e-9c7d-406e-adf9-172c965a3c54", 
+            "flow": "xtls-rprx-direct"
+          }
+        ], 
+        "decryption": "none"
+      }, 
+      "streamSettings": {
+        "network": "tcp", 
+        "security": "xtls", 
+        "xtlsSettings": {
+          "alpn": [
+            "http/1.1"
+          ], 
+          "certificates": [
+            {
+              "certificateFile": "/root/fullchain.crt", 
+              "keyFile": "/root/privkey.key"
+            }
+          ]
+        }
+      }
+    }
+  ], 
+  "outbounds": [
+    {
+      "protocol": "freedom", 
+      "settings": {
+        "domainStrategy": "UseIPv4"
+      }, 
+      "tag": "Proxy"
+    }, 
+    {
+      "protocol": "blackhole", 
+      "settings": {
+        "response": {
+          "type": "http"
+        }
+      }, 
+      "tag": "Reject"
+    }
+  ]
+}
