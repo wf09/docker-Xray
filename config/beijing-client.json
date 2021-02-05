@@ -7,18 +7,21 @@
       "domain:googleapis.cn": "googleapis.com"
     }, 
     "servers": [
+	"119.29.29.29",
       {
-        "address": "119.29.29.29", 
+        "address": "8.8.8.8", 
         "domains": [
-          "geosite:cn"
-        ], 
-        "expectIPs": [
-          "geoip:cn"
-        ], 
+          "geosite:geolocation-!cn"
+        ],
         "port": 53
       },
-	  "1.1.1.1",
-	  "8.8.8.8"
+      {
+        "address": "1.1.1.1", 
+        "domains": [
+          "geosite:geolocation-!cn"
+        ],
+        "port": 53
+      }
     ]
   }, 
   "routing": {
@@ -29,8 +32,8 @@
         "outboundTag": "Proxy",
 		"ip": [
 		"geoip:telegram",
-		"8.8.8.8/32",
-		"1.1.1.1/32"
+		"8.8.8.8",
+		"1.1.1.1"
         ]
       }, 
       {
