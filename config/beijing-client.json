@@ -1,20 +1,12 @@
 {
   "log": {
-    "loglevel": "warning"
+    "loglevel": "info"
   }, 
   "dns": {
-	"tag": "Direct",
     "hosts": {
       "domain:googleapis.cn": "googleapis.com"
     }, 
     "servers": [
-      {
-        "address": "1.1.1.1", 
-        "domains": [
-          "geosite:geolocation-!cn"
-        ],
-        "port": 53
-      },
       {
         "address": "119.29.29.29", 
         "domains": [
@@ -24,7 +16,9 @@
           "geoip:cn"
         ], 
         "port": 53
-      }
+      },
+	  "1.1.1.1",
+	  "8.8.8.8"
     ]
   }, 
   "routing": {
@@ -49,8 +43,7 @@
       }, 
       {
         "type": "field", 
-        "outboundTag": "Direct", 
-		"inboundTag": "Direct",
+        "outboundTag": "Direct",
         "domain": [
           "geosite:private", 
           "geosite:apple-cn", 
