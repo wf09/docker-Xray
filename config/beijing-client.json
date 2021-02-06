@@ -112,6 +112,30 @@
           ]
         }
       }
+    },
+    {
+      "port": 443,
+      "protocol": "vless",
+      "settings": {
+        "decryption": "none",
+        "clients": [
+          {
+            "id": "0"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "certificates": [
+            {
+              "certificateFile": "/root/fullchain.crt",
+              "keyFile": "/root/privkey.key"
+            }
+          ]
+        }
+      }
     }
   ], 
   "outbounds": [
