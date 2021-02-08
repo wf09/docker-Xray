@@ -111,6 +111,10 @@
             }
           ]
         }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls"]
       }
     },
     {
@@ -121,6 +125,7 @@
         "clients": [
           {
             "id": "115b399e-9c7d-406e-adf9-172c965a3c54"
+			
           }
         ]
       },
@@ -135,6 +140,10 @@
             }
           ]
         }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls"]
       }
     }
   ], 

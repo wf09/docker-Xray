@@ -111,6 +111,10 @@
             }
           ]
         }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls"]
       }
     },
     {
@@ -127,6 +131,10 @@
       "streamSettings": {
         "network": "ws", 
         "security": "none"
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls"]
       }
     }
   ], 
