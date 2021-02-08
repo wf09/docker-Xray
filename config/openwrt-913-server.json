@@ -9,7 +9,7 @@
       "settings": {
         "clients": [
           {
-            "id": "0", 
+            "id": "115b399e-9c7d-406e-adf9-172c965a3c54", 
             "flow": "xtls-rprx-direct"
           }
         ], 
@@ -35,7 +35,8 @@
   "outbounds": [
     {
       "protocol": "freedom", 
-      "settings": { }, 
+      "settings": { },
+      "tag": "Education"	  
     }
   ]
 }

@@ -8,7 +8,7 @@
 	}, 
 	"servers": [
 	  {
-		"address": "1.1.1.1", 
+		"address": "8.8.8.8", 
 		"domains": [
 		  "geosite:geolocation-!cn"
 		],
@@ -31,7 +31,7 @@
     "rules": [
     {
       "type": "field",
-      "outboundTag": "Direct",
+      "outboundTag": "BacktoChina",
       "ip": [
         "223.5.5.5/32",
         "119.29.29.29/32",
@@ -64,7 +64,7 @@
       }, 
       {
         "type": "field", 
-        "outboundTag": "Direct",
+        "outboundTag": "BacktoChina",
         "domain": [
           "geosite:private", 
           "geosite:apple-cn", 
@@ -81,7 +81,7 @@
       }, 
       {
         "type": "field", 
-        "outboundTag": "Direct", 
+        "outboundTag": "BacktoChina", 
         "domain": [
           "geosite:cn"
         ]
@@ -96,7 +96,7 @@
         "decryption": "none", 
         "clients": [
           {
-            "id": "0"
+            "id": "115b399e-9c7d-406e-adf9-172c965a3c54"
           }
         ]
       }, 
@@ -114,23 +114,27 @@
       }
     },
     {
-      "port": 443,
-      "protocol": "vless",
+      "port": 443, 
+      "protocol": "vless", 
       "settings": {
-        "decryption": "none",
         "clients": [
           {
-            "id": "0"
+            "id": "115b399e-9c7d-406e-adf9-172c965a3c54", 
+            "flow": "xtls-rprx-direct"
           }
-        ]
-      },
+        ], 
+        "decryption": "none"
+      }, 
       "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
+        "network": "tcp", 
+        "security": "xtls", 
+        "xtlsSettings": {
+          "alpn": [
+            "http/1.1"
+          ], 
           "certificates": [
             {
-              "certificateFile": "/root/fullchain.crt",
+              "certificateFile": "/root/fullchain.crt", 
               "keyFile": "/root/privkey.key"
             }
           ]
@@ -142,14 +146,14 @@
     {
       "protocol": "freedom", 
       "settings": { }, 
-      "tag": "Direct"
+      "tag": "Proxy"
     },
     {
       "protocol": "vless", 
       "settings": {
         "vnext": [
           {
-            "address": "101.32.32.129", 
+            "address": "172.30.172.221", 
             "port": 443, 
             "users": [
               {
@@ -169,7 +173,7 @@
           "serverName": "wss.cloud.fly97.cn"
         }
       }, 
-      "tag": "Proxy"
+      "tag": "BacktoChina"
     }, 
     {
       "protocol": "blackhole", 
