@@ -128,7 +128,7 @@
         "network": "ws", 
         "security": "none"
       }
-    },
+    }
   ], 
   "outbounds": [
     {
