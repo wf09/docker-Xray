@@ -90,30 +90,6 @@
   }, 
   "inbounds": [
     {
-      "port": 80, 
-      "protocol": "vless", 
-      "settings": {
-        "decryption": "none", 
-        "clients": [
-          {
-            "id": "0"
-          }
-        ]
-      }, 
-      "streamSettings": {
-        "network": "ws", 
-        "security": "none", 
-        "tlsSettings": {
-          "certificates": [
-            {
-              "certificateFile": "/root/fullchain.crt", 
-              "keyFile": "/root/privkey.key"
-            }
-          ]
-        }
-      }
-    },
-    {
       "port": 443,
       "protocol": "vless",
       "settings": {
@@ -125,12 +101,25 @@
         ]
       },
       "streamSettings": {
-        "network": "h2",
+        "network": "ws",
         "security": "tls",
-		"httpSettings": {
-		  "host": ["m1.ad.10010.com"],
-		  "path": "/small_video"
-		},
+		"wsSettings": {
+		  "headers": {
+			"Upgrade": "websocket",
+			"Connection": "Upgrade",
+			"Sec-WebSocket-Key": "Y+3mhbpk2XJDOKVS1DU55A\u003d\u003d",
+			"Sec-WebSocket-Version": "13",
+			"Host": "m.client.10010.com",
+			"Accept-Encoding": "gzip",
+			"Cookie": "livebroroute\u003dc4fb3a04e976708ff70bf6c51405563b974038f8; ecs_acc\u003dGgRRKBnZ+1tWQ6ievr0nHmdIr9e2CEJxxNJIH8sf3DvrAXouDmVcp5lw5gf906nXYYAqRemd3J/hZo1DTbkEXSIsmiBXgjddVGDZWRpaE5Wv9uDn8b/eVKRWpoNiclGJrDMYb/kJ4OSToyBfKc3HEjFkvOuLfIDq4LcyvP1VEBk\u003d; mobileServiceAll\u003dd7c41822bcd5dcb30b7d08d5d3afd6d1; c_version\u003dandroid@8.0102; login_type\u003d06; route\u003d4409263098d857a3cc010d262182161c; ln\u003d804caee2c9a4156c337d99588d63a27d; ecs_acc\u003dvo7BHOcFyEyJqrsKX+xSb4DkDXFsS8O49yewcuY6IV2n+L1W3bpUkrvgNQ5FwtALl8AkaAm0S8tZNksdMDrNZ2U433n78z2leaB5a2JeD1K0JAMmU9/598WcJUzbDK0HXiofNOTwxbppN6AdGqRiMSZj0Lrwv6wiWYypRm1LUvY\u003d; cw_mutual\u003d6ff66a046d4cb9a67af6f2af5f74c321d170a3bbc978cdd9db9b189bbe10ca9a1b6bf6b9f7282b1101de996133b83a7686a47d784128fbdac661dd547415972a; city\u003d031|310|90563418|-99; mobileService1\u003dbu5_mrDRjGUGZY4_nnOP63aD9ZGpJVdDKSqKqXGDVQlHMHV74-Dd!-2083655487; ecs_token\u003deyJkYXRhIjoiNWVjMzc1MzNjZDhiYmJhZTEwYWQ1NDMzYjIyNDJkODc2M2Q4ZWU2M2U4ZjAxYTk5OGEzNTQ2NDcwMDFmNzI3NGFlZmI2M2EzZGRkMjZhMDkzODdiNWNlMzlhNmYwMzZlNWE4M2U3ZjcwNTliZjc0M2EzMTYyMGMyNDdkM2QwMjU2NWEzNmYyNGIxY2I1NDEwMzU4MTY5NTEzOTliMTY4NjBhMjFiZDI2YTVjYTA5MDNkM2M5ZjhiY2U0NTUzYWRjIiwidmVyc2lvbiI6IjAwIn0\u003d; logHostIP\u003dnull; c_sfbm\u003d234g_00; jwt\u003deyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtb2JpbGUiOiIxMzI2MjY0NzY5OCIsInBybyI6IjAzMSIsImNpdHkiOiIzMTAiLCJpZCI6IjY5MGEzMjQxN2QyNTNkZTcxYjQ1NGJlMjZlZGQ3MjE3In0.UGRlrzObt--z43T9PPdepKoBhbeJloc8UxZ0mYu4oMA; u_account\u003d13262647698; io\u003dn11612_IqXC8k3dcTrkkcqPAAZb",
+			"User-Agent": "okhttp/4.4.0"
+		  },
+		"security": "tls", 
+        "tlsSettings": {
+          "allowInsecure": true,
+          "serverName": "m.client.10010.com"
+        }
+	  }
         "tlsSettings": {
           "certificates": [
             {

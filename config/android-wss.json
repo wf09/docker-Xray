@@ -138,14 +138,10 @@
 			"User-Agent": "okhttp/4.4.0"
 		  },
 		"security": "tls", 
-		"tlsSettings": {
-		  "certificates": [
-			{
-			  "certificateFile": "/root/fullchain.crt", 
-			  "keyFile": "/root/privkey.key"
-			}
-		  ]
-		}
+        "tlsSettings": {
+          "allowInsecure": true,
+          "serverName": "m.client.10010.com"
+        }
 	  },
 	  "tag": "Direct"
 		}
