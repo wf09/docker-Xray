@@ -93,7 +93,7 @@
       "port": 24670,
       "protocol": "socks",
       "settings": {
-		"auth": "noauth",
+		"auth": "password",
 		"accounts": [
 		{
 		  "user": "fly97",
