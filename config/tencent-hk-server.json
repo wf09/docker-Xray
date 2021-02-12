@@ -8,16 +8,15 @@
     }, 
     "servers": [
       {
-        "address": "8.8.8.8", 
+        "address": "https+local://dns.google/dns-query", 
         "domains": [
           "geosite:geolocation-!cn"
-        ], 
-        "port": 53
+        ]
       }
     ]
   }, 
   "routing": {
-    "domainStrategy": "AsIs", 
+    "domainStrategy": "IPIfNonMatch", 
     "rules": [
       {
         "type": "field", 
@@ -40,7 +39,13 @@
             "flow": "xtls-rprx-direct"
           }
         ], 
-        "decryption": "none"
+		"decryption": "none",
+		"fallbacks": [
+			{
+				"dest": 8080,
+				"xver": 1
+			}
+		]
       }, 
       "streamSettings": {
         "network": "tcp", 
@@ -61,7 +66,27 @@
         "enabled": true,
         "destOverride": ["http", "tls"]
       }
-    }
+    },
+	{
+		"port": 8080,
+		"listen": "127.0.0.1",
+		"protocol": "vless",
+		"settings": {
+			"clients": [
+				{
+					"id": "115b399e-9c7d-406e-adf9-172c965a3c54"
+				}
+			],
+			"decryption": "none"
+		},
+		"streamSettings": {
+			"network": "ws",
+			"security": "none",
+			"wsSettings": {
+				"acceptProxyProtocol": false
+			}
+		}
+	}
   ], 
   "outbounds": [
     {
