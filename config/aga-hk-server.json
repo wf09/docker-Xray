@@ -1,6 +1,6 @@
 {
   "log": {
-    "loglevel": "warning"
+    "loglevel": "info"
   }, 
   "dns": {
     "hosts": {
@@ -8,12 +8,11 @@
     }, 
     "servers": [
       {
-        "address": "8.8.8.8", 
+        "address": "https+local://dns.google/dns-query", 
         "domains": [
           "geosite:geolocation-!cn"
-        ], 
-        "port": 53
-      }, 
+        ]
+      } 
       {
         "address": "119.29.29.29", 
         "domains": [
@@ -178,9 +177,11 @@
   "outbounds": [
     {
       "protocol": "freedom", 
-      "settings": { }, 
+      "settings": {
+        "domainStrategy": "UseIPv4"
+      }, 
       "tag": "Proxy"
-    }, 
+    },
     {
       "protocol": "vless", 
       "settings": {
