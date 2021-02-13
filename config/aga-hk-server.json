@@ -8,20 +8,7 @@
     }, 
     "servers": [
       {
-        "address": "https+local://dns.google/dns-query", 
-        "domains": [
-          "geosite:geolocation-!cn"
-        ]
-      },
-      {
-        "address": "119.29.29.29", 
-        "domains": [
-          "geosite:cn"
-        ], 
-        "expectIPs": [
-          "geoip:cn"
-        ], 
-        "port": 53
+        "address": "https+local://dns.google/dns-query"
       }
     ]
   }, 
