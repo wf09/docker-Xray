@@ -2,58 +2,58 @@
   "log": {
     "loglevel": "warning"
   }, 
-"dns": {
-	"hosts": {
-	  "domain:googleapis.cn": "googleapis.com"
-	}, 
-	"servers": [
-	  {
-		"address": "8.8.8.8", 
-		"domains": [
-		  "geosite:geolocation-!cn"
-		],
-		"port": 53
-	  },
-	  {
-		"address": "119.29.29.29", 
-		"domains": [
-		  "geosite:cn"
-		], 
-		"expectIPs": [
-		  "geoip:cn"
-		], 
-		"port": 53
-	  }
-	]
-}, 
+  "dns": {
+    "hosts": {
+      "domain:googleapis.cn": "googleapis.com"
+    }, 
+    "servers": [
+      {
+        "address": "8.8.8.8", 
+        "domains": [
+          "geosite:geolocation-!cn"
+        ], 
+        "port": 53
+      }, 
+      {
+        "address": "119.29.29.29", 
+        "domains": [
+          "geosite:cn"
+        ], 
+        "expectIPs": [
+          "geoip:cn"
+        ], 
+        "port": 53
+      }
+    ]
+  }, 
   "routing": {
     "domainStrategy": "IPIfNonMatch", 
     "rules": [
-    {
-      "type": "field",
-      "outboundTag": "BacktoChina",
-      "ip": [
-        "223.5.5.5/32",
-        "119.29.29.29/32",
-        "180.76.76.76/32",
-        "114.114.114.114/32",
-        "geoip:cn",
-        "geoip:private"
-      ]
-    },
-    {
-      "type": "field",
-      "outboundTag": "Proxy",
-      "ip": [
-        "1.1.1.1/32",
-        "1.0.0.1/32",
-        "8.8.8.8/32",
-        "8.8.4.4/32",
-        "geoip:us",
-        "geoip:ca",
-        "geoip:telegram"
-      ]
-    },
+      {
+        "type": "field", 
+        "outboundTag": "BacktoChina", 
+        "ip": [
+          "223.5.5.5/32", 
+          "119.29.29.29/32", 
+          "180.76.76.76/32", 
+          "114.114.114.114/32", 
+          "geoip:cn", 
+          "geoip:private"
+        ]
+      }, 
+      {
+        "type": "field", 
+        "outboundTag": "Proxy", 
+        "ip": [
+          "1.1.1.1/32", 
+          "1.0.0.1/32", 
+          "8.8.8.8/32", 
+          "8.8.4.4/32", 
+          "geoip:us", 
+          "geoip:ca", 
+          "geoip:telegram"
+        ]
+      }, 
       {
         "type": "field", 
         "outboundTag": "Reject", 
@@ -64,7 +64,7 @@
       }, 
       {
         "type": "field", 
-        "outboundTag": "BacktoChina",
+        "outboundTag": "BacktoChina", 
         "domain": [
           "geosite:private", 
           "geosite:apple-cn", 
@@ -112,7 +112,7 @@
           ]
         }
       }
-    },
+    }, 
     {
       "port": 443, 
       "protocol": "vless", 
@@ -123,13 +123,13 @@
             "flow": "xtls-rprx-direct"
           }
         ], 
-		"decryption": "none",
-		"fallbacks": [
-			{
-				"dest": 8080,
-				"xver": 1
-			}
-		]
+        "decryption": "none", 
+        "fallbacks": [
+          {
+            "dest": 8080, 
+            "xver": 1
+          }
+        ]
       }, 
       "streamSettings": {
         "network": "tcp", 
@@ -145,39 +145,42 @@
             }
           ]
         }
-      },
+      }, 
       "sniffing": {
-        "enabled": true,
-        "destOverride": ["http", "tls"]
+        "enabled": true, 
+        "destOverride": [
+          "http", 
+          "tls"
+        ]
       }
-    },
-	{
-		"port": 8080,
-		"listen": "127.0.0.1",
-		"protocol": "vless",
-		"settings": {
-			"clients": [
-				{
-					"id": "115b399e-9c7d-406e-adf9-172c965a3c54"
-				}
-			],
-			"decryption": "none"
-		},
-		"streamSettings": {
-			"network": "ws",
-			"security": "none",
-			"wsSettings": {
-				"acceptProxyProtocol": false
-			}
-		}
-	}
+    }, 
+    {
+      "port": 8080, 
+      "listen": "127.0.0.1", 
+      "protocol": "vless", 
+      "settings": {
+        "clients": [
+          {
+            "id": "115b399e-9c7d-406e-adf9-172c965a3c54"
+          }
+        ], 
+        "decryption": "none"
+      }, 
+      "streamSettings": {
+        "network": "ws", 
+        "security": "none", 
+        "wsSettings": {
+          "acceptProxyProtocol": false
+        }
+      }
+    }
   ], 
   "outbounds": [
     {
       "protocol": "freedom", 
       "settings": { }, 
       "tag": "Proxy"
-    },
+    }, 
     {
       "protocol": "vless", 
       "settings": {
@@ -199,8 +202,7 @@
         "network": "tcp", 
         "security": "xtls", 
         "xtlsSettings": {
-          "allowInsecure": true, 
-          "serverName": "wss.cloud.fly97.cn"
+          "allowInsecure": true
         }
       }, 
       "tag": "BacktoChina"

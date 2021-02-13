@@ -35,17 +35,17 @@
       "settings": {
         "clients": [
           {
-            "id": "115b399e-9c7d-406e-adf9-172c965a3c54", 
+            "id": "bfed5eb8-333a-44d2-811f-59edc3e96199", 
             "flow": "xtls-rprx-direct"
           }
         ], 
-		"decryption": "none",
-		"fallbacks": [
-			{
-				"dest": 8080,
-				"xver": 1
-			}
-		]
+        "decryption": "none", 
+        "fallbacks": [
+          {
+            "dest": 8080, 
+            "xver": 1
+          }
+        ]
       }, 
       "streamSettings": {
         "network": "tcp", 
@@ -61,32 +61,35 @@
             }
           ]
         }
-      },
+      }, 
       "sniffing": {
-        "enabled": true,
-        "destOverride": ["http", "tls"]
+        "enabled": true, 
+        "destOverride": [
+          "http", 
+          "tls"
+        ]
       }
-    },
-	{
-		"port": 8080,
-		"listen": "127.0.0.1",
-		"protocol": "vless",
-		"settings": {
-			"clients": [
-				{
-					"id": "115b399e-9c7d-406e-adf9-172c965a3c54"
-				}
-			],
-			"decryption": "none"
-		},
-		"streamSettings": {
-			"network": "ws",
-			"security": "none",
-			"wsSettings": {
-				"acceptProxyProtocol": false
-			}
-		}
-	}
+    }, 
+    {
+      "port": 8080, 
+      "listen": "127.0.0.1", 
+      "protocol": "vless", 
+      "settings": {
+        "clients": [
+          {
+            "id": "bfed5eb8-333a-44d2-811f-59edc3e96199"
+          }
+        ], 
+        "decryption": "none"
+      }, 
+      "streamSettings": {
+        "network": "ws", 
+        "security": "none", 
+        "wsSettings": {
+          "acceptProxyProtocol": false
+        }
+      }
+    }
   ], 
   "outbounds": [
     {
