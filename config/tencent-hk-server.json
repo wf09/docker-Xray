@@ -8,16 +8,20 @@
     }, 
     "servers": [
       {
-        "address": "https+local://dns.google/dns-query", 
-        "domains": [
-          "geosite:geolocation-!cn"
-        ]
+        "address": "https+local://dns.google/dns-query"
       }
     ]
   }, 
   "routing": {
     "domainStrategy": "IPIfNonMatch", 
     "rules": [
+      {
+        "type": "field", 
+        "outboundTag": "Proxy",
+		"domain": [
+		  "domain:gstatic.com"
+		]
+      },
       {
         "type": "field", 
         "outboundTag": "Reject", 
