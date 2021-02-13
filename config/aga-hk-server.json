@@ -51,7 +51,10 @@
           "geoip:us", 
           "geoip:ca", 
           "geoip:telegram"
-        ]
+        ],
+		"domain": [
+		  "domain:gstatic.com"
+		]
       }, 
       {
         "type": "field", 
