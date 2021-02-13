@@ -30,6 +30,13 @@
     "rules": [
       {
         "type": "field", 
+        "outboundTag": "Proxy",
+		"domain": [
+		  "domain:gstatic.com"
+		]
+      }, 
+      {
+        "type": "field", 
         "outboundTag": "BacktoChina", 
         "ip": [
           "223.5.5.5/32", 
@@ -51,10 +58,7 @@
           "geoip:us", 
           "geoip:ca", 
           "geoip:telegram"
-        ],
-		"domain": [
-		  "domain:gstatic.com"
-		]
+        ]
       }, 
       {
         "type": "field", 
