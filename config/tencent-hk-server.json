@@ -23,7 +23,10 @@
         "outboundTag": "Reject", 
         "domain": [
           "geosite:category-ads-all", 
-          "geosite:win-spy"
+          "geosite:win-spy",
+		  "domain:netflav.com",
+		  "domain:jable.tv",
+		  "domain:f1s.app"
         ]
       }
     ]
