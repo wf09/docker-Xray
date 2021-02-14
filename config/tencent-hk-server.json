@@ -19,9 +19,10 @@
         "type": "field", 
         "outboundTag": "Proxy",
 		"domain": [
-		  "domain:gstatic.com"
+		  "domain:gstatic.com",
+		  "edge.activity.windows.com"
 		]
-      },
+      }, 
       {
         "type": "field", 
         "outboundTag": "Reject", 

@@ -19,12 +19,14 @@
         "type": "field", 
         "outboundTag": "Proxy",
 		"domain": [
-		  "domain:gstatic.com"
+		  "domain:gstatic.com",
+		  "edge.activity.windows.com"
 		]
       }, 
       {
         "type": "field", 
         "outboundTag": "BacktoChina", 
+		
         "ip": [
           "223.5.5.5/32", 
           "119.29.29.29/32", 
