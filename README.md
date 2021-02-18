@@ -24,14 +24,13 @@ CMD /root/Xray/xray -config /root/config.json
 
 ```
 cd docker-Xray
-docker build -t xray:80 .
-docker run -d --restart=always --name xray  -p 80:80 xray:80
+docker build -t xray .
 docker logs xray -f
 ```
 
 Example：
 
 ```dockerfile
-docker run -it --restart=always --name xray -v {$PWD}/config/beijing-client.json:/root/config.json -p 80:80 xray:80
+docker run -it --restart=always --name xray -v {$PWD}/config/tencent-hk-server.json:/root/config.json ---network=host xray
 ```
 
