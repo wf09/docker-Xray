@@ -20,17 +20,18 @@ RUN set -ex \
 CMD /root/Xray/xray -config /root/config.json
 ```
 
-运行：
-
-```
-cd docker-Xray
-docker build -t xray .
-docker logs xray -f
-```
-
 Example：
 
+```bash
+git clone https://github.com/wf09/docker-Xray.git
+cd docker-Xray
+```
+
+```bash
+docker build -t xray .
+```
+
 ```dockerfile
-docker run -it --restart=always --name xray -v {$PWD}/config/tencent-hk-server.json:/root/config.json ---network=host xray
+docker run -it --restart=always --name xray -v {$PWD}/config/tencent-hk-server.json:/root/config.json --network=host xray
 ```
 
