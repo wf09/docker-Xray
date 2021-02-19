@@ -19,7 +19,8 @@
         "type": "field", 
         "outboundTag": "Proxy", 
         "domain": [
-          "edge.activity.windows.com"
+          "edge.activity.windows.com",
+          "www.gstatic.com"
         ]
       },
       {
@@ -32,23 +33,28 @@
           "domain:jable.tv",
           "domain:f1s.app"
         ]
-      },  
+      },
       {
-        "type": "field", 
-        "outboundTag": "BacktoChina", 
-        "ip": [
-          "223.5.5.5/32", 
-          "119.29.29.29/32", 
-          "180.76.76.76/32", 
-          "114.114.114.114/32", 
-          "geoip:cn", 
-          "geoip:private"
-        ],
+        "type": "field",
+        "outboundTag": "BacktoChina",
         "domain": [
-          "geosite:private", 
-          "geosite:apple-cn", 
-          "geosite:google-cn", 
-          "geosite:tld-cn",
+          "geosite:private",
+          "geosite:apple-cn",
+          "geosite:google-cn",
+          "geosite:tld-cn"
+        ]
+      },
+      {
+        "type": "field",
+        "outboundTag": "Proxy",
+        "domain": [
+          "geosite:geolocation-!cn"
+        ]
+      },
+      {
+        "type": "field",
+        "outboundTag": "BacktoChina",
+        "domain": [
           "geosite:cn"
         ]
       }
