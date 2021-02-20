@@ -20,7 +20,8 @@
         "outboundTag": "Proxy",
 		"domain": [
 		  "domain:gstatic.com",
-		  "edge.activity.windows.com"
+		  "edge.activity.windows.com",
+      "geosite:speedtest"
 		]
       }, 
       {
@@ -48,18 +49,7 @@
           "geoip:ca", 
           "geoip:telegram"
         ]
-      }, 
-      {
-        "type": "field", 
-        "outboundTag": "Reject", 
-        "domain": [
-          "geosite:category-ads-all", 
-          "geosite:win-spy",
-		  "domain:netflav.com",
-		  "domain:jable.tv",
-		  "domain:f1s.app"
-        ]
-      }, 
+      },
       {
         "type": "field", 
         "outboundTag": "BacktoChina", 
